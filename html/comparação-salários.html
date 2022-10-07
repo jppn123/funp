@@ -1,0 +1,62 @@
+<meta charset = "UTF-8">
+<script>
+function linha(){
+    document.write("<br>");
+}
+function print(frase){
+    document.write(frase);
+    linha();
+}
+var listaSalario = [];
+var salario = parseFloat(prompt("informe um salario"));
+listaSalario.push(salario);
+
+var maior = salario;
+var menor = salario;
+
+var mediaSalarial = 0;
+var impostoRenda = 0;
+var contador = 1;
+
+while(contador <= 9){
+	salario = parseFloat(prompt("informe um salario"));
+	listaSalario.push(salario);
+
+	if(maior < salario){
+		maior = salario;
+	}
+	if(menor > salario){
+		menor = salario;
+	}
+	if(salario <= 1500){
+		impostoRenda = 0;
+	}
+	if(salario > 1500 && salario <= 2000){
+		impostoRenda = 0.1;
+	}
+	if(salario > 2000){
+		impostoRenda = 0.15;
+	}
+	var salarioLiquido = salario - (salario * impostoRenda);
+
+
+	contador = ++contador;
+	
+}
+print("<a3>" + "INFORMAÇÕES " + "</a3>" + "<br>");
+
+print("o maior salario é: " + maior);
+
+print("o menor salario é: " + menor);	
+
+//'for' para realizar a soma dos termos da lista de salarios e então printar a media dos 10 salarios {
+for(var i = 0; i < listaSalario.length; i++){
+	mediaSalarial += listaSalario[i];
+}
+print("a media salarial é: " + mediaSalarial/10);
+//}
+print("o imposto de renda retirado é: " + impostoRenda*100 + "%");
+print("o salario liquido é: " + salarioLiquido);
+
+
+</script>
